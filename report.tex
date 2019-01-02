@@ -2,6 +2,7 @@
 \usepackage{polski}
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
+\usepackage{mathtools,leftidx}% http://ctan.org/pkg/{mathtools,leftidx}
 \usepackage{graphicx}
 \usepackage{geometry}
 \usepackage{float}
@@ -27,7 +28,7 @@
 		\hline\hline
 		1 & $ 0 $ & $0$ & 0 & $\theta_1$ \\
 		\hline
-		2 & $a_1$ & $-\pi/2$ & 0 & $\theta_2$ \\
+		2 & $a_1$ & $\pi/2$ & 0 & $\theta_2$ \\
 		\hline
 		3 & $a_2$ & $0$ & 0 & $\theta_3$ \\
 		\hline
@@ -47,46 +48,88 @@
 
 \section{Kinematyka prosta}
 Przejścia pomiędzy członami:
-\[T^0_1=\left(\begin{array}{cccc} \cos\!\left(\mathrm{\theta}_{1}\right) & - \sin\!\left(\mathrm{\theta}_{1}\right) & 0 & 0\\ \sin\!\left(\mathrm{\theta}_{1}\right) & \cos\!\left(\mathrm{\theta}_{1}\right) & 0 & 0\\ 0 & 0 & 1 & 0\\ 0 & 0 & 0 & 1 \end{array}\right)\]
-\[
-T^1_2=\left(\begin{array}{cccc} \cos\!\left(\mathrm{\theta}_{2}\right) & - \sin\!\left(\mathrm{\theta}_{2}\right) & 0 & a_{1}\\ 0 & 0 & 1 & 0\\ - \sin\!\left(\mathrm{\theta}_{2}\right) & - \cos\!\left(\mathrm{\theta}_{2}\right) & 0 & 0\\ 0 & 0 & 0 & 1 \end{array}\right)
+\[\prescript{0}{1}{T}=\begin{bmatrix}
+\begin{array}{cccc}
+c_1 & -s_1 & 0 & 0 \\
+s_1 & c_1 & 0 & 0 \\
+0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 1 \\
+\end{array}
+\end{bmatrix}
 \]
-\[
-T^2_3=\left(\begin{array}{cccc} \cos\!\left(\mathrm{\theta}_{3}\right) & - \sin\!\left(\mathrm{\theta}_{3}\right) & 0 & a_{2}\\ \sin\!\left(\mathrm{\theta}_{3}\right) & \cos\!\left(\mathrm{\theta}_{3}\right) & 0 & 0\\ 0 & 0 & 1 & 0\\ 0 & 0 & 0 & 1 \end{array}\right)
+\[\prescript{1}{2}{T}=\begin{bmatrix}
+\begin{array}{cccc}
+c_2 & -s_2 & 0 & a_1 \\
+0 & 0 & -1 & 0 \\
+s_2 & c_2 & 0 & 0 \\
+0 & 0 & 0 & 1 \\
+\end{array}
+\end{bmatrix}
 \]
-\[
-T^3_4=\left(\begin{array}{cccc} \cos\!\left(\mathrm{\theta}_{4}\right) & - \sin\!\left(\mathrm{\theta}_{4}\right) & 0 & a_{3}\\ 0 & 0 & -1 & - a_{4}\\ \sin\!\left(\mathrm{\theta}_{4}\right) & \cos\!\left(\mathrm{\theta}_{4}\right) & 0 & 0\\ 0 & 0 & 0 & 1 \end{array}\right)\]
-\[
-T^4_5=\left(\begin{array}{cccc} \cos\!\left(\mathrm{\theta}_{5}\right) & - \sin\!\left(\mathrm{\theta}_{5}\right) & 0 & 0\\ 0 & 0 & -1 & 0\\ \sin\!\left(\mathrm{\theta}_{5}\right) & \cos\!\left(\mathrm{\theta}_{5}\right) & 0 & 0\\ 0 & 0 & 0 & 1 \end{array}\right)\]
-\[
-T^5_6=\left(\begin{array}{cccc} \cos\!\left(\mathrm{\theta}_{6}\right) & - \sin\!\left(\mathrm{\theta}_{6}\right) & 0 & 0\\ 0 & 0 & -1 & 0\\ \sin\!\left(\mathrm{\theta}_{6}\right) & \cos\!\left(\mathrm{\theta}_{6}\right) & 0 & 0\\ 0 & 0 & 0 & 1 \end{array}\right)\]
+\[\prescript{2}{3}{T}=\begin{bmatrix}
+\begin{array}{cccc}
+c_3 & -s_3 & 0 & a_2 \\
+s_3 & c_3 & 0 & 0 \\
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 1 \\
+\end{array}
+\end{bmatrix}
+\]
+\[\prescript{3}{4}{T}=\begin{bmatrix}
+\begin{array}{cccc}
+c_4 & -s_4 & 0 & a_3 \\
+0 & 0 & -1 & -d_4 \\
+s_4 & c_4 & 0 & 0 \\
+0 & 0 & 0 & 1 \\
+\end{array}
+\end{bmatrix}
+\]
+
+\[\prescript{4}{5}{T}=\begin{bmatrix}
+\begin{array}{cccc}
+c_5 & -s_5 & 0 & 0 \\
+0 & 0 & -1 & 0 \\
+s_5 & c_5 & 0 & 0 \\
+0 & 0 & 0 & 1 \\
+\end{array}
+\end{bmatrix}
+\]
+
+\[\prescript{5}{6}{T}=\begin{bmatrix}
+\begin{array}{cccc}
+c_6 & -s_6 & 0 & 0 \\
+0 & 0 & -1 & 0 \\
+s_6 & c_6 & 0 & 0 \\
+0 & 0 & 0 & 1 \\
+\end{array}
+\end{bmatrix}
+\]
 
 Po wymnożeniu:
-
-\[T^0_6 = \left(\begin{array}{cccc} \sin\!\left(\mathrm{\theta}_{6}\right)\, \left(\cos\!\left(\mathrm{\theta}_{4}\right)\, \sin\!\left(\mathrm{\theta}_{1}\right) - \sin\!\left(\mathrm{\theta}_{4}\right)\, \left(\cos\!\left(\mathrm{\theta}_{1}\right)\, \sin\!\left(\mathrm{\theta}_{2}\right)\, \sin\!\left(\mathrm{\theta}_{3}\right) - \cos\!\left(\mathrm{\theta}_{1}\right)\, \cos\!\left(\mathrm{\theta}_{2}\right)\, \cos\!\left(\mathrm{\theta}_{3}\right)\right)\right) - \cos\!\left(\mathrm{\theta}_{6}\right)\, \left(\cos\!\left(\mathrm{\theta}_{5}\right)\, \left(\sin\!\left(\mathrm{\theta}_{1}\right)\, \sin\!\left(\mathrm{\theta}_{4}\right) + \cos\!\left(\mathrm{\theta}_{4}\right)\, \left(\cos\!\left(\mathrm{\theta}_{1}\right)\, \sin\!\left(\mathrm{\theta}_{2}\right)\, \sin\!\left(\mathrm{\theta}_{3}\right) - \cos\!\left(\mathrm{\theta}_{1}\right)\, \cos\!\left(\mathrm{\theta}_{2}\right)\, \cos\!\left(\mathrm{\theta}_{3}\right)\right)\right) - \sin\!\left(\mathrm{\theta}_{5}\right)\, \left(\cos\!\left(\mathrm{\theta}_{1}\right)\, \cos\!\left(\mathrm{\theta}_{2}\right)\, \sin\!\left(\mathrm{\theta}_{3}\right) + \cos\!\left(\mathrm{\theta}_{1}\right)\, \cos\!\left(\mathrm{\theta}_{3}\right)\, \sin\!\left(\mathrm{\theta}_{2}\right)\right)\right) & \cos\!\left(\mathrm{\theta}_{6}\right)\, \left(\cos\!\left(\mathrm{\theta}_{4}\right)\, \sin\!\left(\mathrm{\theta}_{1}\right) - \sin\!\left(\mathrm{\theta}_{4}\right)\, \left(\cos\!\left(\mathrm{\theta}_{1}\right)\, \sin\!\left(\mathrm{\theta}_{2}\right)\, \sin\!\left(\mathrm{\theta}_{3}\right) - \cos\!\left(\mathrm{\theta}_{1}\right)\, \cos\!\left(\mathrm{\theta}_{2}\right)\, \cos\!\left(\mathrm{\theta}_{3}\right)\right)\right) + \sin\!\left(\mathrm{\theta}_{6}\right)\, \left(\cos\!\left(\mathrm{\theta}_{5}\right)\, \left(\sin\!\left(\mathrm{\theta}_{1}\right)\, \sin\!\left(\mathrm{\theta}_{4}\right) + \cos\!\left(\mathrm{\theta}_{4}\right)\, \left(\cos\!\left(\mathrm{\theta}_{1}\right)\, \sin\!\left(\mathrm{\theta}_{2}\right)\, \sin\!\left(\mathrm{\theta}_{3}\right) - \cos\!\left(\mathrm{\theta}_{1}\right)\, \cos\!\left(\mathrm{\theta}_{2}\right)\, \cos\!\left(\mathrm{\theta}_{3}\right)\right)\right) - \sin\!\left(\mathrm{\theta}_{5}\right)\, \left(\cos\!\left(\mathrm{\theta}_{1}\right)\, \cos\!\left(\mathrm{\theta}_{2}\right)\, \sin\!\left(\mathrm{\theta}_{3}\right) + \cos\!\left(\mathrm{\theta}_{1}\right)\, \cos\!\left(\mathrm{\theta}_{3}\right)\, \sin\!\left(\mathrm{\theta}_{2}\right)\right)\right) &  - \sin\!\left(\mathrm{\theta}_{5}\right)\, \left(\sin\!\left(\mathrm{\theta}_{1}\right)\, \sin\!\left(\mathrm{\theta}_{4}\right) + \cos\!\left(\mathrm{\theta}_{4}\right)\, \left(\cos\!\left(\mathrm{\theta}_{1}\right)\, \sin\!\left(\mathrm{\theta}_{2}\right)\, \sin\!\left(\mathrm{\theta}_{3}\right) - \cos\!\left(\mathrm{\theta}_{1}\right)\, \cos\!\left(\mathrm{\theta}_{2}\right)\, \cos\!\left(\mathrm{\theta}_{3}\right)\right)\right) - \cos\!\left(\mathrm{\theta}_{5}\right)\, \left(\cos\!\left(\mathrm{\theta}_{1}\right)\, \cos\!\left(\mathrm{\theta}_{2}\right)\, \sin\!\left(\mathrm{\theta}_{3}\right) + \cos\!\left(\mathrm{\theta}_{1}\right)\, \cos\!\left(\mathrm{\theta}_{3}\right)\, \sin\!\left(\mathrm{\theta}_{2}\right)\right) & a_{4}\, \left(\cos\!\left(\mathrm{\theta}_{1}\right)\, \cos\!\left(\mathrm{\theta}_{2}\right)\, \sin\!\left(\mathrm{\theta}_{3}\right) + \cos\!\left(\mathrm{\theta}_{1}\right)\, \cos\!\left(\mathrm{\theta}_{3}\right)\, \sin\!\left(\mathrm{\theta}_{2}\right)\right) - a_{3}\, \left(\cos\!\left(\mathrm{\theta}_{1}\right)\, \sin\!\left(\mathrm{\theta}_{2}\right)\, \sin\!\left(\mathrm{\theta}_{3}\right) - \cos\!\left(\mathrm{\theta}_{1}\right)\, \cos\!\left(\mathrm{\theta}_{2}\right)\, \cos\!\left(\mathrm{\theta}_{3}\right)\right) + a_{1}\, \cos\!\left(\mathrm{\theta}_{1}\right) + a_{2}\, \cos\!\left(\mathrm{\theta}_{1}\right)\, \cos\!\left(\mathrm{\theta}_{2}\right)\\ \cos\!\left(\mathrm{\theta}_{6}\right)\, \left(\cos\!\left(\mathrm{\theta}_{5}\right)\, \left(\cos\!\left(\mathrm{\theta}_{1}\right)\, \sin\!\left(\mathrm{\theta}_{4}\right) - \cos\!\left(\mathrm{\theta}_{4}\right)\, \left(\sin\!\left(\mathrm{\theta}_{1}\right)\, \sin\!\left(\mathrm{\theta}_{2}\right)\, \sin\!\left(\mathrm{\theta}_{3}\right) - \cos\!\left(\mathrm{\theta}_{2}\right)\, \cos\!\left(\mathrm{\theta}_{3}\right)\, \sin\!\left(\mathrm{\theta}_{1}\right)\right)\right) + \sin\!\left(\mathrm{\theta}_{5}\right)\, \left(\cos\!\left(\mathrm{\theta}_{2}\right)\, \sin\!\left(\mathrm{\theta}_{1}\right)\, \sin\!\left(\mathrm{\theta}_{3}\right) + \cos\!\left(\mathrm{\theta}_{3}\right)\, \sin\!\left(\mathrm{\theta}_{1}\right)\, \sin\!\left(\mathrm{\theta}_{2}\right)\right)\right) - \sin\!\left(\mathrm{\theta}_{6}\right)\, \left(\cos\!\left(\mathrm{\theta}_{1}\right)\, \cos\!\left(\mathrm{\theta}_{4}\right) + \sin\!\left(\mathrm{\theta}_{4}\right)\, \left(\sin\!\left(\mathrm{\theta}_{1}\right)\, \sin\!\left(\mathrm{\theta}_{2}\right)\, \sin\!\left(\mathrm{\theta}_{3}\right) - \cos\!\left(\mathrm{\theta}_{2}\right)\, \cos\!\left(\mathrm{\theta}_{3}\right)\, \sin\!\left(\mathrm{\theta}_{1}\right)\right)\right) &  - \cos\!\left(\mathrm{\theta}_{6}\right)\, \left(\cos\!\left(\mathrm{\theta}_{1}\right)\, \cos\!\left(\mathrm{\theta}_{4}\right) + \sin\!\left(\mathrm{\theta}_{4}\right)\, \left(\sin\!\left(\mathrm{\theta}_{1}\right)\, \sin\!\left(\mathrm{\theta}_{2}\right)\, \sin\!\left(\mathrm{\theta}_{3}\right) - \cos\!\left(\mathrm{\theta}_{2}\right)\, \cos\!\left(\mathrm{\theta}_{3}\right)\, \sin\!\left(\mathrm{\theta}_{1}\right)\right)\right) - \sin\!\left(\mathrm{\theta}_{6}\right)\, \left(\cos\!\left(\mathrm{\theta}_{5}\right)\, \left(\cos\!\left(\mathrm{\theta}_{1}\right)\, \sin\!\left(\mathrm{\theta}_{4}\right) - \cos\!\left(\mathrm{\theta}_{4}\right)\, \left(\sin\!\left(\mathrm{\theta}_{1}\right)\, \sin\!\left(\mathrm{\theta}_{2}\right)\, \sin\!\left(\mathrm{\theta}_{3}\right) - \cos\!\left(\mathrm{\theta}_{2}\right)\, \cos\!\left(\mathrm{\theta}_{3}\right)\, \sin\!\left(\mathrm{\theta}_{1}\right)\right)\right) + \sin\!\left(\mathrm{\theta}_{5}\right)\, \left(\cos\!\left(\mathrm{\theta}_{2}\right)\, \sin\!\left(\mathrm{\theta}_{1}\right)\, \sin\!\left(\mathrm{\theta}_{3}\right) + \cos\!\left(\mathrm{\theta}_{3}\right)\, \sin\!\left(\mathrm{\theta}_{1}\right)\, \sin\!\left(\mathrm{\theta}_{2}\right)\right)\right) & \sin\!\left(\mathrm{\theta}_{5}\right)\, \left(\cos\!\left(\mathrm{\theta}_{1}\right)\, \sin\!\left(\mathrm{\theta}_{4}\right) - \cos\!\left(\mathrm{\theta}_{4}\right)\, \left(\sin\!\left(\mathrm{\theta}_{1}\right)\, \sin\!\left(\mathrm{\theta}_{2}\right)\, \sin\!\left(\mathrm{\theta}_{3}\right) - \cos\!\left(\mathrm{\theta}_{2}\right)\, \cos\!\left(\mathrm{\theta}_{3}\right)\, \sin\!\left(\mathrm{\theta}_{1}\right)\right)\right) - \cos\!\left(\mathrm{\theta}_{5}\right)\, \left(\cos\!\left(\mathrm{\theta}_{2}\right)\, \sin\!\left(\mathrm{\theta}_{1}\right)\, \sin\!\left(\mathrm{\theta}_{3}\right) + \cos\!\left(\mathrm{\theta}_{3}\right)\, \sin\!\left(\mathrm{\theta}_{1}\right)\, \sin\!\left(\mathrm{\theta}_{2}\right)\right) & a_{4}\, \left(\cos\!\left(\mathrm{\theta}_{2}\right)\, \sin\!\left(\mathrm{\theta}_{1}\right)\, \sin\!\left(\mathrm{\theta}_{3}\right) + \cos\!\left(\mathrm{\theta}_{3}\right)\, \sin\!\left(\mathrm{\theta}_{1}\right)\, \sin\!\left(\mathrm{\theta}_{2}\right)\right) - a_{3}\, \left(\sin\!\left(\mathrm{\theta}_{1}\right)\, \sin\!\left(\mathrm{\theta}_{2}\right)\, \sin\!\left(\mathrm{\theta}_{3}\right) - \cos\!\left(\mathrm{\theta}_{2}\right)\, \cos\!\left(\mathrm{\theta}_{3}\right)\, \sin\!\left(\mathrm{\theta}_{1}\right)\right) + a_{1}\, \sin\!\left(\mathrm{\theta}_{1}\right) + a_{2}\, \cos\!\left(\mathrm{\theta}_{2}\right)\, \sin\!\left(\mathrm{\theta}_{1}\right)\\ \cos\!\left(\mathrm{\theta}_{6}\right)\, \left(\sin\!\left(\mathrm{\theta}_{5}\right)\, \left(\cos\!\left(\mathrm{\theta}_{2}\right)\, \cos\!\left(\mathrm{\theta}_{3}\right) - \sin\!\left(\mathrm{\theta}_{2}\right)\, \sin\!\left(\mathrm{\theta}_{3}\right)\right) - \cos\!\left(\mathrm{\theta}_{4}\right)\, \cos\!\left(\mathrm{\theta}_{5}\right)\, \left(\cos\!\left(\mathrm{\theta}_{2}\right)\, \sin\!\left(\mathrm{\theta}_{3}\right) + \cos\!\left(\mathrm{\theta}_{3}\right)\, \sin\!\left(\mathrm{\theta}_{2}\right)\right)\right) - \sin\!\left(\mathrm{\theta}_{4}\right)\, \sin\!\left(\mathrm{\theta}_{6}\right)\, \left(\cos\!\left(\mathrm{\theta}_{2}\right)\, \sin\!\left(\mathrm{\theta}_{3}\right) + \cos\!\left(\mathrm{\theta}_{3}\right)\, \sin\!\left(\mathrm{\theta}_{2}\right)\right) &  - \sin\!\left(\mathrm{\theta}_{6}\right)\, \left(\sin\!\left(\mathrm{\theta}_{5}\right)\, \left(\cos\!\left(\mathrm{\theta}_{2}\right)\, \cos\!\left(\mathrm{\theta}_{3}\right) - \sin\!\left(\mathrm{\theta}_{2}\right)\, \sin\!\left(\mathrm{\theta}_{3}\right)\right) - \cos\!\left(\mathrm{\theta}_{4}\right)\, \cos\!\left(\mathrm{\theta}_{5}\right)\, \left(\cos\!\left(\mathrm{\theta}_{2}\right)\, \sin\!\left(\mathrm{\theta}_{3}\right) + \cos\!\left(\mathrm{\theta}_{3}\right)\, \sin\!\left(\mathrm{\theta}_{2}\right)\right)\right) - \cos\!\left(\mathrm{\theta}_{6}\right)\, \sin\!\left(\mathrm{\theta}_{4}\right)\, \left(\cos\!\left(\mathrm{\theta}_{2}\right)\, \sin\!\left(\mathrm{\theta}_{3}\right) + \cos\!\left(\mathrm{\theta}_{3}\right)\, \sin\!\left(\mathrm{\theta}_{2}\right)\right) &  - \cos\!\left(\mathrm{\theta}_{5}\right)\, \left(\cos\!\left(\mathrm{\theta}_{2}\right)\, \cos\!\left(\mathrm{\theta}_{3}\right) - \sin\!\left(\mathrm{\theta}_{2}\right)\, \sin\!\left(\mathrm{\theta}_{3}\right)\right) - \cos\!\left(\mathrm{\theta}_{4}\right)\, \sin\!\left(\mathrm{\theta}_{5}\right)\, \left(\cos\!\left(\mathrm{\theta}_{2}\right)\, \sin\!\left(\mathrm{\theta}_{3}\right) + \cos\!\left(\mathrm{\theta}_{3}\right)\, \sin\!\left(\mathrm{\theta}_{2}\right)\right) & a_{4}\, \left(\cos\!\left(\mathrm{\theta}_{2}\right)\, \cos\!\left(\mathrm{\theta}_{3}\right) - \sin\!\left(\mathrm{\theta}_{2}\right)\, \sin\!\left(\mathrm{\theta}_{3}\right)\right) - a_{3}\, \left(\cos\!\left(\mathrm{theta}_{2}\right)\, \sin\!\left(\mathrm{theta}_{3}\right) + \cos\!\left(\mathrm{theta}_{3}\right)\, \sin\!\left(\mathrm{theta}_{2}\right)\right) - a_{2}\, \sin\!\left(\mathrm{theta}_{2}\right)\\ 0 & 0 & 0 & 1 \end{array}\right) \]
-
-\[T^0_6 = \left(\begin{array}{cccc}
-s_6 (c_4 s_1 - s_4 (c_1 s_2 s_3 - c_1 c_2 c_3)) - c_6 (c_5 (s_1 s_4 + c_4 (c_1 s_2 s_3 - c_1 c_2 c_3)) - s_5 (c_1 c_2 s_3 + c_1 c_3 s_2)) &
-c_6 (c_4 s_1 - s_4 (c_1 s_2 s_3 - c_1 c_2 c_3)) + s_6 (c_5 (s_1 s_4 + c_4 (c_1 s_2 s_3 - c_1 c_2 c_3)) - s_5 (c_1 c_2 s_3 + c_1 c_3 s_2)) &
-- s_5 (s_1 s_4 + c_4 (c_1 s_2 s_3 - c_1 c_2 c_3)) - c_5 (c_1 c_2 s_3 + c_1 c_3 s_2) &
-a_{4} (c_1 c_2 s_3 + c_1 c_3 s_2) - a_{3} (c_1 s_2 s_3 - c_1 c_2 c_3) + a_{1} c_1 + a_{2} c_1 c_2
-\\
-c_6 (c_5 (c_1 s_4 - c_4 (s_1 s_2 s_3 - c_2 c_3 s_1)) + s_5 (c_2 s_1 s_3 + c_3 s_1 s_2)) - s_6 (c_1 c_4 + s_4 (s_1 s_2 s_3 - c_2 c_3 s_1)) &
-- c_6 (c_1 c_4 + s_4 (s_1 s_2 s_3 - c_2 c_3 s_1)) - s_6 (c_5 (c_1 s_4 - c_4 (s_1 s_2 s_3 - c_2 c_3 s_1)) + s_5 (c_2 s_1 s_3 + c_3 s_1 s_2)) &
-s_5 (c_1 s_4 - c_4 (s_1 s_2 s_3 - c_2 c_3 s_1)) - c_5 (c_2 s_1 s_3 + c_3 s_1 s_2) &
-a_{4} (c_2 s_1 s_3 + c_3 s_1 s_2) - a_{3} (s_1 s_2 s_3 - c_2 c_3 s_1) + a_{1} s_1 + a_{2} c_2 s_1
-\\
-c_6 (s_5 (c_2 c_3 - s_2 s_3) - c_4 c_5 (c_2 s_3 + c_3 s_2)) - s_4 s_6 (c_2 s_3 + c_3 s_2) &
-- s_6 (s_5 (c_2 c_3 - s_2 s_3) - c_4 c_5 (c_2 s_3 + c_3 s_2)) - c_6 s_4 (c_2 s_3 + c_3 s_2) &
-- c_5 (c_2 c_3 - s_2 s_3) - c_4 s_5 (c_2 s_3 + c_3 s_2) &
-a_{4} (c_2 c_3 - s_2 s_3) - a_{3} (c_2 s_3 + c_3 s_2) - a_{2} s_2
-\\
-0 &
-0 &
-0 &
-1
-\end{array}\right) \]
+\[\prescript{0}{6}{T}=\begin{bmatrix}
+\begin{array}{cccc}
+r_{11} & r_{12} & r_{13} & p_x \\
+r_{21} & r_{22} & r_{23} & p_y \\
+r_{31} & r_{32} & r_{33} & p_z \\
+0 & 0 & 0 & 1 \\
+\end{array}
+\end{bmatrix}
+\]
+gdzie:
+\[ r_{11} = c_1(c_{23}(c_4c_5c_6 + s_4s_6) + s_{23}s_5c_6) - s_1(c_4s_6 -s_4c_5c_6)\]
+\[ r_{12} = c_1(c_{23}(s_4c_6 - c_4c_5c_6) - s_{23}s_5s_6) - s_1(s_4c_5s_6 + c_4s_6)\]
+\[ r_{13} = c_1(c_{23}c_4s_5) + s_1s_4s_5\]
+\[ r_{21} = s_1(c_{23}(c_4c_5c_6 + s_4s_6) + s_{23}s_5c_6) + c_1(c_4s_6 -s_4c_5c_6 )\]
+\[ r_{22} = s_1(c_{23}(s_4c_6 - c_4c_5c_6) - s_{23}s_5s_6) + c_1(s_4c_5s_6 + c_4c_6)\]
+\[ r_{23} = s_1(c_{23}c_4s_5 - s_{23}c_5) - c_1s_4s_5\]
+\[ r_{31} = s_{23}(c_4c_5c_6 + s_4s_6) - c_{23}s_5c_6\]
+\[ r_{32} = s_{23}(s_4c_6 - c_4c_5c_6) + c_{23}s_5s_6\]
+\[ r_{33} = s_{23}c_4s_5 + c_{23}c_5\] 
+\[ p_x = c_1(c_{23}a_3 + s_{23}d_4 + c_2a_2 + a_1))\] 
+\[ p_y = s_1(c_{23}a_3 + s_{23}d_4 + c_2a_2 + a_1))\]
+\[ p_z = s_{23}a_3 - c_{23}d_4 + s_2a_2 \]
 
 \section{Kinematyka odwrotna}
+\subsection{$\theta_1$}
 
 \end{document}
