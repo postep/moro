@@ -158,6 +158,52 @@ Bierzemy wyrażenie w 2 wierszu i 4 kolumnie z lewej strony i przyrównujemy do 
 \[ \frac{s_1}{c_1} = \frac{p_y}{p_x} \]
 \[ \theta_1 = \arctan(\frac{p_y}{p_x})\]
 \subsection{$\theta_2$}
+Bierzemy z wiersza 1 i kolumny 4 oraz wiersza 3 i kolumny 4:
+\[ \left\{\begin{array}{c}
+c_{23}a_3 + s_{23}d_4 + c_2a_2 + a_1 = p_x c_1 + p_y s_1 \\
+s_{23}a_3 - c_{23}d_4+s_2a_2 = p_x 
+\end{array} \right. \]
+
+wprowadzamy stałe:
+\[ E = p_xc_1 + p_ys_1 -a_1\]
+\[F = p_x\]
+
+i dostajemy układ:
+\[ \left\{\begin{array}{c}
+c_{23}a_3 + s_{23}d_4 = E - c_2a_2\\
+s_{23}a_3 - c_{23}d_4 = F - s_2a_2 
+\end{array} \right. \]
+
+stąd:
+\[ \left\{\begin{array}{c}
+(c_{23}a_3)^2 + 2c_{23}a_3s_{23}d_4 + (s_{23}d_4)^2 = E^2 -2Ec_2a_2 (c_2a_2)^2 \\
+(s_{23}a_3)^2 -2s_{23}a_3c_{23}d_4 + (c_{23}d_4)^2 = F^2 - 2*Fs_2a_2 + (s_2a_2)^2 
+\end{array} \right. \]
+
+po dodaniu stronami i zastosowaniu jedynki trygonometrycznej:
+\[ a_3^2 + d_4^2 = E^2 + F^2 -2Ec_2a_2 - 2Fs_2a_2 + a_2^2 \]
+
+po uporządkowaniu możemy podstawić:
+\[ K = E^2 + F^2 + a_2^2 - a_3^2 - d_4^2 \]
+\[2Ec_2a_2 + 2Fs_2a_2 = K \]
+
+i możemy zastosować wsp. biegunowe poprzez:
+\[ \left\{\begin{array}{c}
+2Ea_2 = Rs_\phi \\
+2Fa_2 = Rc_\phi
+\end{array} \right. \]
+
+\[ R = \sqrt{4E^2a_2^2 + 4F^2a_2^2} \]
+\[ K = Rs_\phi c_2 + Rc_\phi s_2 \]
+
+wyznaczamy ze wzorów na sumy trygonometryczne:
+\[ K = Rs_{(\phi + \theta_2)} \]
+a z jedynki trygonometrycznej:
+\[ c_{(\phi + \theta_2)} = \pm\sqrt{1-(\frac{K}{R})^2} \]
+więc:
+\[ \tan{\phi + \theta_2}  = \frac{K/R}{\pm \sqrt{1-(\frac{K}{R})^2}}\]
+\[ \phi + \theta_2  = \arctan{\frac{K/R}{\pm \sqrt{1-(\frac{K}{R})^2}}}\]
+\[ \phi  = \arctan{\frac{K/R}{\pm \sqrt{1-(\frac{K}{R})^2}}} - arctan{\frac{2Ea_2}{2Fa_2}}\]
 \subsection{$\theta_3$}
 \subsection{$\theta_4$}
 \subsection{$\theta_5$}
