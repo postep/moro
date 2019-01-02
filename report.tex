@@ -17,9 +17,6 @@
 
 \maketitle
 
-\section{Robot}
-
-Robot zaprezentowany na wykładzie (rys. ) to ABB IRB 6620.
 
 \section{Parametry DH}
 
@@ -30,15 +27,15 @@ Robot zaprezentowany na wykładzie (rys. ) to ABB IRB 6620.
 		\hline\hline
 		1 & $ 0 $ & $0$ & 0 & $\theta_1$ \\
 		\hline
-		2 & $a_1$ & $-\pi/2$ & 0 & $\theta_1$ \\
+		2 & $a_1$ & $-\pi/2$ & 0 & $\theta_2$ \\
 		\hline
-		3 & $a_2$ & $0$ & 0 & $\theta_1$ \\
+		3 & $a_2$ & $0$ & 0 & $\theta_3$ \\
 		\hline
-		4 & $a_3$ & $-\pi/2$ & $a_4$ & $\theta_1$ \\
+		4 & $a_3$ & $\pi/2$ & $a_4$ & $\theta_4$ \\
 		\hline
-		5 & $0$ & $\pi/2$ & 0 & $\theta_1$ \\
+		5 & $0$ & $\pi/2$ & 0 & $\theta_5$ \\
 		\hline
-		6 & $0$ & $-\pi/2$ & 0 & $\theta_1$ \\
+		6 & $0$ & $\pi/2$ & 0 & $\theta_6$ \\
 		\hline
 		
 		
@@ -49,7 +46,23 @@ Robot zaprezentowany na wykładzie (rys. ) to ABB IRB 6620.
 \end{table}
 
 \section{Kinematyka prosta}
-
+\[T^0_1=\left(\begin{array}{cccc} \cos\!\left(\mathrm{\theta_1}\right) & - \sin\!\left(\mathrm{\theta_1}\right) & 0 & 0\\ \sin\!\left(\mathrm{\theta_1}\right) & \cos\!\left(\mathrm{\theta_1}\right) & 0 & 0\\ 0 & 0 & 1 & 0\\ 0 & 0 & 0 & 1 \end{array}\right)
+\]
+\[
+T^1_2=\left(\begin{array}{cccc} \cos\!\left(\mathrm{\theta_2}\right) & 0 & - \sin\!\left(\mathrm{\theta_2}\right) & \mathrm{a_1}\, \cos\!\left(\mathrm{\theta_2}\right)\\ \sin\!\left(\mathrm{\theta_2}\right) & 0 & \cos\!\left(\mathrm{\theta_2}\right) & \mathrm{a_1}\, \sin\!\left(\mathrm{\theta_2}\right)\\ 0 & -1 & 0 & 0\\ 0 & 0 & 0 & 1 \end{array}\right)
+\]
+\[
+T^2_3=\left(\begin{array}{cccc} \cos\!\left(\mathrm{\theta_3}\right) & - \sin\!\left(\mathrm{\theta_3}\right) & 0 & \mathrm{a_2}\, \cos\!\left(\mathrm{\theta_3}\right)\\ \sin\!\left(\mathrm{\theta_3}\right) & \cos\!\left(\mathrm{\theta_3}\right) & 0 & \mathrm{a_2}\, \sin\!\left(\mathrm{\theta_3}\right)\\ 0 & 0 & 1 & 0\\ 0 & 0 & 0 & 1 \end{array}\right)
+\]
+\[
+T^3_4=\left(\begin{array}{cccc} \cos\!\left(\mathrm{\theta_4}\right) & 0 & \sin\!\left(\mathrm{\theta_4}\right) & \mathrm{a_3}\, \cos\!\left(\mathrm{\theta_4}\right)\\ \sin\!\left(\mathrm{\theta_4}\right) & 0 & - \cos\!\left(\mathrm{\theta_4}\right) & \mathrm{a_3}\, \sin\!\left(\mathrm{\theta_4}\right)\\ 0 & 1 & 0 & \mathrm{a_4}\\ 0 & 0 & 0 & 1 \end{array}\right)
+\]
+\[
+T^4_5=\left(\begin{array}{cccc} \cos\!\left(\mathrm{\theta_5}\right) & 0 & \sin\!\left(\mathrm{\theta_5}\right) & 0\\ \sin\!\left(\mathrm{\theta_5}\right) & 0 & - \cos\!\left(\mathrm{\theta_5}\right) & 0\\ 0 & 1 & 0 & 0\\ 0 & 0 & 0 & 1 \end{array}\right)
+\]
+\[
+T^5_6=\left(\begin{array}{cccc} \cos\!\left(\mathrm{\theta_6}\right) & 0 & \sin\!\left(\mathrm{\theta_6}\right) & 0\\ \sin\!\left(\mathrm{\theta_6}\right) & 0 & - \cos\!\left(\mathrm{\theta_6}\right) & 0\\ 0 & 1 & 0 & 0\\ 0 & 0 & 0 & 1 \end{array}\right)
+\]
 \section{Kinematyka odwrotna}
 
 \end{document}
