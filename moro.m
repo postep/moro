@@ -25,6 +25,7 @@ T45(3, 3) = 0;
 T34(2, 1) = 0;
 T34(2, 2) = 0;
 T34(3, 3) = 0;
+T34(3, 4) = 0;
 
 T12(2, 1) = 0;
 T12(2, 2) = 0;
@@ -44,5 +45,9 @@ latex_T34 = latex(sym(T34))
 latex_T45 = latex(sym(T45))
 latex_T56 = latex(sym(T56))
 
+
+T06 = T01*T12*T23*T34*T45*T56
+
+latex_T06 = latex(sym(T06))
 
 
