@@ -1,0 +1,55 @@
+\documentclass[]{article}
+\usepackage{polski}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{float}
+
+\geometry{legalpaper, margin=0.6in}
+
+%opening
+\title{Projekt MORO}
+\author{Jakub Postępski}
+\date{3 stycznia 2019}
+
+\begin{document}
+
+\maketitle
+
+\section{Robot}
+
+Robot zaprezentowany na wykładzie (rys. ) to ABB IRB 6620.
+
+\section{Parametry DH}
+
+\begin{table}[H]
+	\begin{tabular}{|| c | c c c c ||}
+		\hline
+		L. p. & $a_{i-1}$ & $\alpha_{i-1}$ & $d_i$ & $\theta_i$ \\ 
+		\hline\hline
+		1 & $ 0 $ & $0$ & 0 & $\theta_1$ \\
+		\hline
+		2 & $a_1$ & $-\pi/2$ & 0 & $\theta_1$ \\
+		\hline
+		3 & $a_2$ & $0$ & 0 & $\theta_1$ \\
+		\hline
+		4 & $a_3$ & $-\pi/2$ & $a_4$ & $\theta_1$ \\
+		\hline
+		5 & $0$ & $\pi/2$ & 0 & $\theta_1$ \\
+		\hline
+		6 & $0$ & $-\pi/2$ & 0 & $\theta_1$ \\
+		\hline
+		
+		
+		
+	\end{tabular}
+	\caption{Parametry DH}
+	\label{tab1}
+\end{table}
+
+\section{Kinematyka prosta}
+
+\section{Kinematyka odwrotna}
+
+\end{document}
