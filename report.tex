@@ -4,10 +4,11 @@
 \usepackage{amsmath}
 \usepackage{mathtools,leftidx}% http://ctan.org/pkg/{mathtools,leftidx}
 \usepackage{graphicx}
-\usepackage{geometry}
 \usepackage{float}
 
-\geometry{legalpaper, margin=0.6in}
+\usepackage[margin=0.7in]{geometry}
+
+
 \newcommand\T{\mathcal{T}}
 
 %opening
@@ -132,23 +133,31 @@ r_{31} & r_{32} & r_{33} & p_z \\
 \end{bmatrix}
 \]
 gdzie:
-\[ r_{11} = c_1(c_{23}(c_4c_5c_6 + s_4s_6) + s_{23}s_5c_6) - s_1(c_4s_6 -s_4c_5c_6)\]
-\[ r_{12} = c_1(c_{23}(s_4c_6 - c_4c_5c_6) - s_{23}s_5s_6) - s_1(s_4c_5s_6 + c_4s_6)\]
-\[ r_{13} = c_1(c_{23}c_4s_5) + s_1s_4s_5\]
-\[ r_{21} = s_1(c_{23}(c_4c_5c_6 + s_4s_6) + s_{23}s_5c_6) + c_1(c_4s_6 -s_4c_5c_6 )\]
-\[ r_{22} = s_1(c_{23}(s_4c_6 - c_4c_5c_6) - s_{23}s_5s_6) + c_1(s_4c_5s_6 + c_4c_6)\]
-\[ r_{23} = s_1(c_{23}c_4s_5 - s_{23}c_5) - c_1s_4s_5\]
-\[ r_{31} = s_{23}(c_4c_5c_6 + s_4s_6) - c_{23}s_5c_6\]
-\[ r_{32} = s_{23}(s_4c_6 - c_4c_5c_6) + c_{23}s_5s_6\]
-\[ r_{33} = s_{23}c_4s_5 + c_{23}c_5\] 
-\[ p_x = c_1(c_{23}a_3 + s_{23}d_4 + c_2a_2 + a_1))\] 
-\[ p_y = s_1(c_{23}a_3 + s_{23}d_4 + c_2a_2 + a_1))\]
-\[ p_z = s_{23}a_3 - c_{23}d_4 + s_2a_2 \]
+\begin{equation}\begin{array}{l}
+r_{11} = - s_6(c_4s_1 - s_4c_1c_{23}) + c_6(s_5c_1s_{23} + c_5(s_1s_4 + c_4c_1c_{23})) \\
+r_{12} = - c_6(c_4s_1 - s_4c_1c_{23}) - s_6(s_5c_1s_{23} + c_5(s_1s_4 + c_4c_1c_{23})) \\
+r_{13} = - c_5c_1s_{23} + s_5(s_1s_4 + c_4c_1c_{23}) \\
+p_x = a_1c_1 + a_2c_1c_2 + a_3c_1c_{23} + d_4c_1s_{23}
+\\
+\\
+r_{21} = s_6(c_1c_4 + s_4s_1c_{23}) + c_6(s_5s_1s_{23} - c_5(c_1s_4 - c_4s_1c_{23})) \\
+r_{22} = c_6(c_1c_4 + s_4s_1c_{23}) - s_6(s_5s_1s_{23} - c_5(c_1s_4 - c_4s_1c_{23})) \\
+r_{23} = - c_5s_1s_{23} - s_5(c_1s_4 - c_4s_1c_{23}) \\
+p_y = a_1s_1 + a_2s_1c_2 + a_3s_1c_{23} + d_4s_1s_{23}
+\\
+\\
+r_{31} = s_4s_6s_{23} - c_6(s_5c_{23} - c_4c_5s_{23}) \\
+r_{32} = c_6s_4s_{23} + s_6(s_5c_{23} - c_4c_5s_{23}) \\
+r_{33} = c_5c_{23} + c_4s_5s_{23} \\
+p_z = a_2s_2 + a_3s_{23} - d_4c_{23}
+\\
+\end{array}
+\end{equation}
 
 \section{Kinematyka odwrotna}
 Tworzymy dodatkową macierz pośrednią:
 \scriptsize
-\[\prescript{1}{6}{\T} = \begin{bmatrix}
+\begin{equation}\prescript{1}{6}{\T} = \begin{bmatrix}
 s_4s_6c_{23} + c_6(s_5s_{23} + c_4c_5c_{23}) &
 s_4c_6c_{23} - s_6(s_5s_{23} + c_4c_5c_{23}) &
 c_4s_5c_{23} - c_5s_{23} &
@@ -165,7 +174,8 @@ c_4s_5s_{23} + c_5c_{23} &
 a_2s_2 + a_3s_{23} - d_4c_{23}
 \\
 0 & 0 & 0 & 1
-\end{bmatrix}\]
+\end{bmatrix}
+\end{equation}
 \normalsize
 
 możemy wyprowadzić:
@@ -191,220 +201,226 @@ r_{31} & r_{32} & r_{33} & p_z \\
 &= \prescript{1}{6}{\T}
 \end{align*}
 
+
+W dalszej części pracy zakładamy, że tam gdzie jest wykonywane dzielenie, odpowiednie wyrażenia są nierówne zeru.
+
 \subsection{$\theta_1$}
 Bierzemy równanie z $\prescript{1}{6}{\T}_{24}$:
-\[\begin{array}{l}
+
+\begin{equation}\begin{array}{l}
 c_1p_y - s_1p_x = 0 \\
 \cfrac{s_1}{c_1} = \cfrac{p_y}{p_x} \\
 \theta_1 = \arctan \cfrac{p_y}{p_x}
-\end{array}\]
+\end{array}\end{equation}
 
 \subsection{$\theta_2$}
 Bierzemy równania z $\prescript{1}{6}{\T}_{14}$ i $\prescript{1}{6}{\T}_{34}$:
 
-\[\left\{\begin{array}{l}
+\begin{equation}
+\label{eq:theta2}
+\left\{\begin{array}{l}
 a_1 + a_2c_2 + a_3c_{23} + d_4s_{23} = c_1p_x + s_1p_y \\
 a_2s_2 + a_3s_{23} - d_4c_{23} = p_z
-\end{array}\right.\]
+\end{array}\right.\end{equation}
 
 i wprowadzając stałe:
-\[\left\{\begin{array}{l}
+\begin{equation}\left\{\begin{array}{l}
 E = c_1p_x + s_1p_y - a_1 \\
 F = p_z
-\end{array}\right.\]
+\end{array}\right.\end{equation}
 
 otrzymujemy:
-\[\left\{\begin{array}{l}
+\begin{equation}\left\{\begin{array}{l}
 a_3c_{23} + d_4s_{23} = E - a_2c_2 \\
 a_3s_{23} - d_4c_{23} = F - a_2s_2
-\end{array}\right.\]
-\[\left\{\begin{array}{l}
+\end{array}\right.\end{equation}
+\begin{equation}\left\{\begin{array}{l}
 (a_3c_{23})^2 + 2a_3d_4c_{23}s_{23} + (d_4s_{23})^2 = E^2 - 2Ea_2c_2 + (a_2c_2)^2 \\
 (a_3s_{23})^2 - 2a_3d_4s_{23}c_{23} + (d_4c_{23})^2 = F^2 - 2Fa_2s_2 + (a_2s_2)^2
-\end{array}\right.\]
+\end{array}\right.\end{equation}
 
 dodając stronami i przekształcając dalej:
-\[
+\begin{equation}
 a_3^2 + d_4^2 = E^2 + F^2 - 2Ea_2c_2 - 2Fa_2s_2 + a_2^2
-\]
+\end{equation}
 
 podstawiając:
-\[
+\begin{equation}
 K = E^2 + F^2 + a_2^2 - a_3^2 - d_4^2
-\]
+\end{equation}
 
 oraz stosując współrzędne biegunowe:
-\[\left\{\begin{array}{l}
+\begin{equation}\left\{\begin{array}{l}
 2Ea_2 = Rs_\omega \\
 2Fa_2 = Rc_\omega
-\end{array}\right.\]
+\end{array}\right.\end{equation}
 
 otrzymujemy:
-\[\begin{array}{l}
+\begin{equation}\begin{array}{l}
 R = \sqrt{4E^2a_2^2 + 4F^2a_2^2} \\
 K = 2Ea_2c_2 + 2Fa_2s_2 = Rs_\omega c_2 + Rc_\omega s_2
-\end{array}\]
+\end{array}\end{equation}
 
 stosując wzór na sumę sinusów oraz jedynkę trygonometryczną:
-\[\begin{array}{l}
+\begin{equation}\begin{array}{l}
 K = R\sin(\theta_2 + \omega) \\
 \sin(\theta_2 + \omega) = \frac{K}{R} \\
 \cos(\theta_2 + \omega) = \pm \sqrt{1 - \big(\frac{K}{R}\big)^2}
-\end{array}\]
+\end{array}\end{equation}
 
 zatem:
-\[\begin{array}{l}
+\begin{equation}\begin{array}{l}
 \tan(\theta_2 + \omega) = \cfrac{\frac{K}{R}}{\pm \sqrt{1 - \big(\frac{K}{R}\big)^2}} \\
 \theta_2 + \omega = \arctan{\cfrac{\frac{K}{R}}{\pm \sqrt{1 - \big(\frac{K}{R}\big)^2}}} \\
 \theta_2  = \arctan{\cfrac{\frac{K}{R}}{\pm \sqrt{1 - \big(\frac{K}{R}\big)^2}}} - \arctan{\cfrac{2Ea_2}{2Fa_2}} \\
-\end{array}\]
+\end{array}\end{equation}
 
 \subsection{$\theta_3$}
-Wykorzystujemy równania z poprzedniej sekcji:
-\[\left\{\begin{array}{l}
+Wykorzystując równania nr \ref{eq:theta2}:
+\begin{equation}\left\{\begin{array}{l}
 a_3c_{23} + d_4s_{23} = E - a_2c_2 \\
 a_3s_{23} - d_4c_{23} = F - a_2s_2
-\end{array}\right.\]
+\end{array}\right.\end{equation}
 
 należy podstawić:
-\[\left\{\begin{array}{l}
+\begin{equation}\left\{\begin{array}{l}
 M = E - a_2c_2 \\
 N = F - a_2s_2
-\end{array}\right.\]
+\end{array}\right.\end{equation}
 
 i uzyskujemy:
-\[\left\{\begin{array}{l}
+\begin{equation}\left\{\begin{array}{l}
 a_3c_{23} + d_4s_{23} = M \\
 a_3s_{23} - d_4c_{23} = N
-\end{array}\right.\]
+\end{array}\right.\end{equation}
 
 przekształcając dalej:
-\[\begin{array}{l}
+\begin{equation}\begin{array}{l}
 c_{23} = \cfrac{M - d_4s_{23}}{a_3} \\
 a_3s_{23} - d_4\cfrac{M - d_4s_{23}}{a_3} = N \\
 a_3^2s_{23} - d_4(M - d_4s_{23}) = Na_3 \\
 s_{23} = \cfrac{Na_3 + Md_4}{a_3^2 + d_4^2} \\
 c_{23} = \cfrac{M - d_4(\cfrac{Na_3 + Md_4}{a_3^2 + d_4^2})}{a_3}
-\end{array}\]
+\end{array}\end{equation}
 
 dzieląc $s_{23}$ i $c_{23}$ przez siebie otrzymujemy
-\[\begin{array}{l}
+\begin{equation}\begin{array}{l}
 \tan(\theta_2 + \theta_3) = \cfrac{s_{23}}{c_{23}} = \cfrac{\cfrac{Na_3 + Md_4}{a_3^2 + d_4^2}}{\cfrac{M - d_4(\frac{Na_3 + Md_4}{a_3^2 + d_4^2})}{a_3}} \\
 \tan(\theta_2 + \theta_3) = \cfrac{a_3(Na_3 + Md_4)}{M(a_3^2 + d_4^2) - d_4(Na_3 + Md_4)} \\
-\end{array}\]
+\end{array}\end{equation}
 
 oraz finalnie:
-\[
+\begin{equation}
 \theta_3 = \arctan{\cfrac{a_3(Na_3 + Md_4)}{M(a_3^2 + d_4^2) - d_4(Na_3 + Md_4)}} - \theta_2
-\]
+\end{equation}
 
 \subsection{$\theta_4$}
 Wykorzystując równanie z $\prescript{1}{6}{\T}_{23}$:
-\[
+\begin{equation}
 - s_4s_5 = c_1r_{23} - s_1r_{13}
-\]
+\end{equation}
 
 przy założeniu $s_5 \neq 0$ mamy z jedynki trygonometrycznej
-\[\begin{array}{l}
+\begin{equation}\begin{array}{l}
 s_4 = \cfrac{c_1r_{23} - s_1r_{13}}{s_5} \\
 c_4 = \pm \sqrt{1 - \big(\cfrac{c_1r_{23} - s_1r_{13}}{s_5}\big)^2} \\
 \tan(\theta_4) = \cfrac{\cfrac{c_1r_{23} - s_1r_{13}}{s_5}}{\pm \sqrt{1 - \big(\cfrac{c_1r_{23} - s_1r_{13}}{s_5}\big)^2}}
-\end{array}\]
+\end{array}\end{equation}
 
 stąd:
-\[
+\begin{equation}
 \theta_4 = \arctan\cfrac{\cfrac{c_1r_{23} - s_1r_{13}}{s_5}}{\pm \sqrt{1 - \big(\cfrac{c_1r_{23} - s_1r_{13}}{s_5}\big)^2}}
-\]
+\end{equation}
 
 \subsection{$\theta_5$}
 Biorąc równania z $\prescript{1}{6}{\T}_{13}$ i $\prescript{1}{6}{\T}_{33}$:
 
-\[\left\{\begin{array}{l}
+\begin{equation}\left\{\begin{array}{l}
 c_4s_5c_{23} - c_5s_{23} = c_1r_{13} + s_1r_{23} \\
 c_4s_5s_{23} + c_5c_{23} = r_{33}
-\end{array}\right.\]
+\end{array}\right.\end{equation}
 
 i wprowadzając stałe
-\[\left\{\begin{array}{l}
+\begin{equation}\left\{\begin{array}{l}
 P = c_1r_{13} + s_1r_{23} \\
 Q = r_{33}
-\end{array}\right.\]
+\end{array}\right.\end{equation}
 
 otrzymujemy
-\[\left\{\begin{array}{l}
+\begin{equation}\left\{\begin{array}{l}
 c_4s_5c_{23} - c_5s_{23} = P \\
 c_4s_5s_{23} + c_5c_{23} = Q
-\end{array}\right.\]
+\end{array}\right.\end{equation}
 
 przekształcając dalej:
-\[\begin{array}{l}
+\begin{equation}\begin{array}{l}
 c_4s_5 = \cfrac{Q - c_5c_{23}}{s_{23}} \\
 c_{23}\cfrac{Q - c_5c_{23}}{s_{23}} - c_5s_{23} = P \\
 c_{23}(Q - c_5c_{23}) - c_5s_{23}^2 = Ps_{23} \\
 c_5(c_{23}^2 + s_{23}^2) = Qc_{23} - Ps_{23} \\
 c_5 = Qc_{23} - Ps_{23}
-\end{array}\]
+\end{array}\end{equation}
 
 z jedynki trygonometrycznej:
-\[\begin{array}{l}
+\begin{equation}\begin{array}{l}
 s_5 = \pm \sqrt{1 - (Qc_{23} - Ps_{23})^2} \\
 \tan(\theta_5) = \cfrac{\pm \sqrt{1 - (Qc_{23} - Ps_{23})^2}}{Qc_{23} - Ps_{23}}
-\end{array}\]
+\end{array}\end{equation}
 
 i finalnie:
-\[
+\begin{equation}
 \theta_5 = \arctan\cfrac{\pm \sqrt{1 - (Qc_{23} - Ps_{23})^2}}{Qc_{23} - Ps_{23}}
-\]
+\end{equation}
 (Wartości $c_{23}$ oraz $s_{23}$ wyznaczone zostały podczas wyznaczania $\theta_3$).
 
 \subsection{$\theta_6$}
 Biorąc równania z $\prescript{1}{6}{\T}_{21}$ i $\prescript{1}{6}{\T}_{22}$:
 
-\[\left\{\begin{array}{l}
+\begin{equation}\left\{\begin{array}{l}
 c_4s_6 - c_5c_6s_4 = c_1r_{21} - s_1r_{11} \\
 c_4c_6 + c_5s_4s_6 = c_1r_{22} - s_1r_{12}
-\end{array}\right.\]
+\end{array}\right.\end{equation}
 
 i wprowadzając stałe
-\[\left\{\begin{array}{l}
+\begin{equation}\left\{\begin{array}{l}
 S = c_1r_{21} - s_1r_{11} \\
 T = c_1r_{22} - s_1r_{12}
-\end{array}\right.\]
+\end{array}\right.\end{equation}
 
 i uzyskujemy:
-\[\left\{\begin{array}{l}
+\begin{equation}\left\{\begin{array}{l}
 c_4s_6 - c_5c_6s_4 = S \\
 c_4c_6 + c_5s_4s_6 = T
-\end{array}\right.\]
+\end{array}\right.\end{equation}
 
 zakładając $s_5 \neq 0$ i przekształcając:
-\[\begin{array}{l}
+\begin{equation}\begin{array}{l}
 s_6 = \cfrac{S + c_5c_6s_4}{c_4} \\
 c_4c_6 + c_5s_4\cfrac{S + c_5c_6s_4}{c_4} = T \\
 c_4^2c_6 + c_5s_4(S + c_5c_6s_4) = Tc_4 \\
 c_6 = \cfrac{Tc_4 - Sc_5s_4}{s_4^2c_5^2 + c_4^2}
-\end{array}\]
+\end{array}\end{equation}
 
 z jedynki trygonometrycznej:
-\[\begin{array}{l}
+\begin{equation}\begin{array}{l}
 s_6 = \pm \sqrt{1 - (\cfrac{Tc_4 - Sc_5s_4}{s_4^2c_5^2 + c_4^2})^2} \\
 \tan(\theta_6) = \cfrac{\pm \sqrt{1 - (\cfrac{Tc_4 - Sc_5s_4}{s_4^2c_5^2 + c_4^2})^2}}{\cfrac{Tc_4 - Sc_5s_4}{s_4^2c_5^2 + c_4^2}}
-\end{array}\]
+\end{array}\end{equation}
 
 i finalnie:
-\[
+\begin{equation}
 \theta_6 = \arctan\cfrac{\pm \sqrt{1 - (\cfrac{Tc_4 - Sc_5s_4}{s_4^2c_5^2 + c_4^2})^2}}{\cfrac{Tc_4 - Sc_5s_4}{s_4^2c_5^2 + c_4^2}}
-\]
+\end{equation}
 
 \subsection{Osobliwość $\theta_5 = 0$}
 Osobliwość która wynika z zależności:  $s_5 = 0 \Rightarrow \theta_5 = 0$ pozwala uzyskać uproszczony układ równań:
-\[\begin{array}{l}
+\begin{equation}\begin{array}{l}
 s_5 = 0 \\
 c_5 = 1
-\end{array}\]
+\end{array}\end{equation}
 
 więc mamy:
-\[\prescript{0}{1}{\T}^{-1} \cdot \prescript{0}{6}{\T}_d = \prescript{1}{6}{\T^*} = \begin{bmatrix}
+\begin{equation}\prescript{0}{1}{\T}^{-1} \cdot \prescript{0}{6}{\T}_d = \prescript{1}{6}{\T^*} = \begin{bmatrix}
 s_4s_6c_{23} + c_4c_6c_{23} &
 s_4c_6c_{23} - c_4s_6c_{23} &
 - s_{23} &
@@ -421,23 +437,29 @@ c_{23} &
 a_2s_2 + a_3s_{23} - d_4c_{23}
 \\
 0 & 0 & 0 & 1
-\end{bmatrix}\]
+\end{bmatrix}\end{equation}
 
 można wtedy wykorzystać równania $\prescript{1}{6}{\T^*}_{21}$ i $\prescript{1}{6}{\T^*}_{22}$:
-\[\left\{\begin{array}{l}
+\begin{equation}\left\{\begin{array}{l}
 c_4s_6 - s_4c_6 = c_1r_{21} - s_1r_{11} \\
 c_4c_6 + s_4s_6 = c_1r_{22} - s_1r_{12}
-\end{array}\right.\]
+\end{array}\right.\end{equation}
 
 korzystając ze wzorów na sinus i cosinus sumy:
-\[\left\{\begin{array}{l}
+\begin{equation}\left\{\begin{array}{l}
 \sin(\theta_6 - \theta_4) = c_1r_{21} - s_1r_{11} \\
 \cos(\theta_6 - \theta_4) = c_1r_{22} - s_1r_{12}
-\end{array}\right.\]
+\end{array}\right.\end{equation}
 
 stąd:
-\[
+\begin{equation}
 \theta_6 - \theta_4 = \arctan\cfrac{c_1r_{21} - s_1r_{11}}{c_1r_{22} - s_1r_{12}}
-\]
+\end{equation}
+
+w takiej sytuacji powinniśmy przyjąć:
+\begin{equation}
+\theta_4 = \theta_4^{poprzednie}
+\end{equation}
+
 
 \end{document}
