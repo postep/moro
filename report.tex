@@ -205,8 +205,65 @@ więc:
 \[ \phi + \theta_2  = \arctan{\frac{K/R}{\pm \sqrt{1-(\frac{K}{R})^2}}}\]
 \[ \phi  = \arctan{\frac{K/R}{\pm \sqrt{1-(\frac{K}{R})^2}}} - arctan{\frac{2Ea_2}{2Fa_2}}\]
 \subsection{$\theta_3$}
+Dzięki temu, że poznliśmy $\theta_2$ możemy znowu wykorzystać układ:
+\[ \left\{\begin{array}{c}
+c_{23}a_3 + s_{23}d_4 = E - c_2a_2\\
+s_{23}a_3 - c_{23}d_4 = F - s_2a_2 
+\end{array} \right. \]
+
+przyjmujemy:
+\[ \left\{\begin{array}{c}
+M = E - c_2a_2\\
+N = F - s_2a_2 
+\end{array} \right. \]
+
+i podstawiamy:
+\[ \left\{\begin{array}{c}
+c_{23}a_3 + s_{23}d_4 = M\\
+s_{23}a_3 - c_{23}d_4 = N 
+\end{array} \right. \]
+
+wyznaczamy:
+\[ c_{23} = \frac{M - s_{23}d_4}{a_3}\]
+żeby wyliczyć:
+\[s_{23}a_3 - \frac{M-s_{23}-d_4}{a_3}d_4 = N\]
+po uporządkowaniu:
+\[s_{23} = \frac{Na_3 + Md_4}{a_3^2 + d_4^2}\]
+i ponownie podstawiamy:
+\[c_{23} = \frac{M-(\frac{Na_3 + Md_4}{a_3^2 + d_4^2})d_4}{a_3}\]
+
+dostajemy:
+\[ \tan{}_{23}  = \frac{s_{23}}{c_{23}} = \frac{\frac{Na_3 + Md_4}{a_3^2 + d_4^2}}{\frac{M-(\frac{Na_3 + Md_4}{a_3^2 + d_4^2})d_4}{a_3}} \]
+\[ \theta_2 + \theta_3 = \arctan{\frac{\frac{Na_3 + Md_4}{a_3^2 + d_4^2}}{\frac{M-(\frac{Na_3 + Md_4}{a_3^2 + d_4^2})d_4}{a_3}}} \]
+
+finalnie:
+\[ \theta_3 = \arctan{\frac{\frac{Na_3 + Md_4}{a_3^2 + d_4^2}}{\frac{M-(\frac{Na_3 + Md_4}{a_3^2 + d_4^2})d_4}{a_3}}} - \theta_2 \]
+
 \subsection{$\theta_4$}
 \subsection{$\theta_5$}
+Bierzemy zależność z wiersza 1 i kolumny 3 oraz wiersza 3 i kolumny 3
+\[ \left\{\begin{array}{c}
+c_{23}c_4s_5 - s_{23}c_5 = r_{13}c_1 + r_{23}s_1 \\
+s_{23}c_4s_5 + c_{23}c_5 = r_{33}
+\end{array} \right. \]
+
+ustalamy:
+\[ \left\{\begin{array}{c}
+c_{23}c_4s_5 - s_{23}c_5 = r_{13}c_1 + r_{23}s_1 = P\\
+s_{23}c_4s_5 + c_{23}c_5 = r_{33} = Q
+\end{array} \right. \]
+
+Z drugiego równania obliczamy $c_4s_5$ i podstawiamy do pierwszego:
+\[ c_4s_5 = \frac{Q-c_{23}c_5}{s_{23}} \]
+\[ c_{23}(\frac{Q-c_{23}c_5}{s_{23}})-s_{23}c_5  = P\]
+
+mnożymy stronami przez $s_{23}$:
+\[ c_{23}(Q-c_{23}c_5) - c_5s_{23}^2 = Ps_{23} \]
+\[ c_{23}Q - Ps_{23} = c_{23}^2c_5 + c_5s_{23}^2 \]
+
+dlatego że znamy $theta_2$ oraz $\theta_3$ możemy:
+\[c_5 = c_{23}Q - Ps_{23}\]
+\[ theta_5 = \arccos{c_{23}Q - Ps_{23}} \]
 \subsection{$\theta_6$}
 
 \end{document}
